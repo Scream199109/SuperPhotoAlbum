@@ -1,9 +1,11 @@
 <script defer src="/js/photos.js"></script>
 {{#each albumPhotos}}
- <div class="wave_inner">
+ <div divid{{id}}={{id}} name="waveInner" class="wave_inner">
     <figure class="wave">
-        <img src={{link}} alt=""></img>
+        <img id={{id}} src={{link}} alt=""></img>
         <figcaption >{{name}}</figcaption>
+        <div id={{id}} >Удолить</div>
     </figure>
 </div>
 {{/each}}
+

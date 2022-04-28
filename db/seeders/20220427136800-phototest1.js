@@ -46,6 +46,13 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        name: "cat",
+        link: "https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+        albumId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
         name: "Василий",
         link: "https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
         albumId: 1,
