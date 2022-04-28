@@ -10,6 +10,27 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        title: "Stars",
+        private: false,
+        userId: "1",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Nature",
+        private: false,
+        userId: "1",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        title: "Dogs",
+        private: false,
+        userId: "1",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
