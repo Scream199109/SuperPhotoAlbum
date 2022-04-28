@@ -11,6 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.TEXT,
       },
+      comment: {
+        type: Sequelize.TEXT,
+      },
       link: {
         type: Sequelize.TEXT,
       },
