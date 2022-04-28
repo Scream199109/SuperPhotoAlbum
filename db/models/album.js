@@ -18,12 +18,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
       },
       private: {
+        defaultValue: false,
         type: DataTypes.BOOLEAN,
       },
       userId: {
         type: DataTypes.INTEGER,
         references: {
-          model: "Users",
+          model: "User",
           key: "id",
         },
       },
