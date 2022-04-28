@@ -4,18 +4,19 @@ const sessionFileStore = require('session-file-store');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const hbs = require('hbs');
-
+const signUpCheck = require('../middleware/authUser');
 const FileStore = sessionFileStore(session);
+const authChecker = require('../middleware/authChecker');
 // файловое хранилище
 
 const config = (app) => {
   app.set('view engine', 'hbs');
   hbs.registerPartials(path.join(process.env.PWD, 'views', 'partials'));
   app.use(express.urlencoded({ extended: true }));
-
   app.use(express.json());
   app.use(express.static(path.join(process.env.PWD, 'public')));
   app.use(cookieParser());
+  // app.use(authChecker)
   app.use(session({
     key: 'user_uid',
     secret: 'ourTeamLeadTheBest',
@@ -27,5 +28,6 @@ const config = (app) => {
       httpOnly: true,
     },
   }));
+  app.use(signUpCheck)
 };
 module.exports = config;

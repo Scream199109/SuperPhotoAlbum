@@ -55,6 +55,7 @@ class AuthController {
       const user = await User.findOne({ where: { email } });
       if (user && await bcrypt.compare(password, user.password)) {
         req.session.user = user;
+        req.session.isAuthorized = true;
         res.status(201).json({ message: 'Добро пожаловать' });
       } else {
         res.status(401).json({ message: 'Неверный логин или пароль' });

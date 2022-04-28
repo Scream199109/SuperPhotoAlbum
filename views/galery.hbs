@@ -1,26 +1,31 @@
 <div class="container">
   <div class="addAll">
 
-  <div class="addAlbum">
-<form action="/add/album" id="add-album" method="POST">
-<input type="text" name="title" class="photo" placeholder="Имя альбома">
-{{!-- <input type="checkbox" value="private" name="private">
-<label for="private">Приватный</label>  Приватность альбома перенос  --}}
-<button class="btn-add-album" type="submit">Добавить альбом</button>
-</form>
-</div>
+
+    <div class="addAlbum">
+      <form action="/add/album" id="add-album" method="POST">
+        <input type="text" name="title" class="photo" placeholder="Имя альбома">
+        {{!-- <input type="checkbox" value="private" name="private">
+        <label for="private">Приватный</label> Приватность альбома перенос --}}
+        <button class="btn-add-album" type="submit">Добавить альбом</button>
+      </form>
+    </div>
 
 
-<div class="addPhoto">
-  <form action="/add/photo" id="add-photo" method="POST">
-<input type="text" name="name" class="photo" placeholder="Название фото">
-<input type="text" name="comment" class="photo" placeholder="комментарий">
-<input type="file" name="photo" class="photo" placeholder="ссылка" enctype= 'multipart/form-data'>
-<button class="btn-add-album" type="submit">Добавить</button>
-</form>
+    <div class="addPhoto">
+      <form action="/add/photo" id="add-photo" method="POST" enctype="multipart/form-data">
+        <select name="allTopic" id="allTopic">
+          {{#each allTopic}}
 
-</div>
-
-</div>
-
+          <option value="{{this.id}}">{{this.title}}</option>
+          {{/each}}
+        </select>
+        <input type="text" name="name" class="photo" placeholder="Название фото">
+        <input type="text" name="comment" class="photo" placeholder="комментарий">
+        <input type="file" name="photo" class="photo" placeholder="ссылка">
+        <button class="btn-add-album" type="submit">Добавить</button>
+      </form>
+      {{!-- <form action="/add/photo" method="POST"></form> --}}
+    </div>
+  </div>
 </div>
