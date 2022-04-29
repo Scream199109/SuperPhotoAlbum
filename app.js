@@ -4,7 +4,6 @@ const fileUpload = require('express-fileupload');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
-// const { v4: uuidv4 } = require('uuid');
 
 app.use(fileUpload({}))
 
@@ -24,5 +23,8 @@ app.use('/', galeryRouter)
 app.get("/error", (req, res) => {
   res.render("error");
 });
+// app.get("/super", (req, res) => {
+//   res.render("super");
+// });
 
 app.listen(PORT, () => console.log(`Server started at Port${PORT}...`));

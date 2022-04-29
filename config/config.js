@@ -6,7 +6,7 @@ const path = require('path');
 const hbs = require('hbs');
 const signUpCheck = require('../middleware/authUser');
 const FileStore = sessionFileStore(session);
-const authChecker = require('../middleware/authChecker');
+// const authChecker = require('../middleware/authChecker');
 // файловое хранилище
 
 const config = (app) => {
