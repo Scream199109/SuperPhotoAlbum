@@ -1,5 +1,6 @@
 // const containerAlbums = document.querySelector("#containerAlbums");
 const colomnDiv = document.querySelector("#colomnDiv");
+// const private = document.getElementById(`private/${ticktock}`);
 const photos = document.querySelector("#photos");
 // console.log("PHOTOS>>>>", photos);
 // console.log("colomnDiv>>>", colomnDiv);
@@ -30,9 +31,9 @@ colomnDiv.addEventListener("click", async (event) => {
     const data = await response.json();
     console.log(data);
     if (data.status) {
-      private.innerText = "&#x1F512;";
+      private.innerHTML = "&#128274;";
     } else {
-      private.innerText = "&#x1F523;";
+      private.innerHTML = "&#128273;";
     }
     // const data = await response.text();
     // photos.innerHTML = data;

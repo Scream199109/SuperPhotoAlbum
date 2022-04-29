@@ -187,6 +187,9 @@ h1 {
   height: 300px; */
 }
 
+.mouseHover:hover { background: gold; }
+
+/* .mouseHover:hover{ outline: dotted red; } */
 #colomnDiv{
   display :block;
   width: 250px;
@@ -203,6 +206,14 @@ h1 {
   font-size: 40px;
   color: white;
   margin: 5px;
+}
+.albumButton:hover { background: gold; }
+
+.menuButton{
+  background-color: #BFE2FF;
+  margin: 10px;
+  border-radius: 5%;
+  border: 3px solid darkgray;
 }
 
 .wave_inner {

@@ -6,6 +6,10 @@ const { User, Album, Photo } = require("../db/models");
 router
   .route("/allAlbums")
   .get(async (req, res) => {
+    // myStorage = window.localStorage;
+    // localStorage.setItem("user");
+    // const usa = localStorage.getItem("user");
+    // console.log(usa);
     const album = await Album.findAll();
     const photos = await Photo.findAll();
     res.render("albums", { album, photos });
@@ -23,8 +27,11 @@ router
   .delete(async (req, res) => {
     const { id } = req.body;
     // console.log(id);
+    // const deleteAlbum = await Album.findOne({ where: { albumId: id } });
     const putPhoto = await Photo.findOne({ where: { id } });
     await Photo.destroy({ where: { id } });
+    // const lastPhoto = await Photo.findAll();
+    // if (!lastPhoto) await deleteAlbum.destroy();
     res.json({ id });
   })
   .put(async (req, res) => {
