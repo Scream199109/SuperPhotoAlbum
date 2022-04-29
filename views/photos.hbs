@@ -2,12 +2,11 @@
 <script defer src="/js/photos.js"></script> --}}
 {{#each albumPhotos}}
 
- <div data-id="{{id}}" divid{{id}}={{id}} name="waveInner" class="wave_inner">
-    <figure class="wave">
-        <img id={{id}} src={{link}} alt=""></img>
-        <figcaption >{{name}}</figcaption>
-        <div class="mouseHover" id={{id}} >Удолить</div>
-    </figure>
-
+<div data-id="{{id}}" divid{{id}}={{id}} name="waveInner" class="wave_inner">
+  <figure class="wave">
+    <img id={{id}} src=/img/{{link}} alt=""></img>
+    <figcaption>{{name}}</figcaption>
+    <div class="mouseHover" id={{id}}>Удолить</div>
+  </figure>
 </div>
 {{/each}}

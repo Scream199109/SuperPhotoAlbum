@@ -47,3 +47,17 @@
 
 
 /* ============================================ */
+.mouseHover {
+  cursor: pointer;
+}
+
+.albumButton {
+  cursor: pointer;
+}
+
+.mouseDel {
+  font-size: 25px;
+  cursor: pointer;
+  margin: 5px;
+  color: red;
+}

@@ -1,15 +1,17 @@
 // const containerAlbums = document.querySelector("#containerAlbums");
 const colomnDiv = document.querySelector("#colomnDiv");
-// const private = document.getElementById(`private/${ticktock}`);
 const photos = document.querySelector("#photos");
 const btnAlbum = document.querySelector(".albumButton");
-// console.log("PHOTOS>>>>", photos);
-// console.log("colomnDiv>>>", colomnDiv);
+
 colomnDiv?.addEventListener("click", async (event) => {
   event.preventDefault();
   // console.log(event.target);
   const tick = event.target.id;
   const tock = event.target;
+  const del = event.target;
+
+  const delAlb = del.dataset.privid
+  console.log("🚀 ~ colomnDiv?.addEventListener ~ delAlb", delAlb)
   const ticktock = tock.dataset.privid;
   console.log("tock ", tock);
   console.log("tick>>>>", tick);
@@ -28,6 +30,16 @@ colomnDiv?.addEventListener("click", async (event) => {
         id: ticktock,
       }),
     });
+    if (del.innerText === 'D') {
+      const resp = await fetch('/allAlbums', {
+        method: "delete",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ delAlb }),
+      });
+
+    }
     const private = document.getElementById(`private/${ticktock}`);
 
     const data = await response.json();

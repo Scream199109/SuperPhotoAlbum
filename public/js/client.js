@@ -18,7 +18,7 @@ regForm?.addEventListener('submit', async (event) => {
   const data = await response.json();
   if (data.message === 'Успешная регистрация') {
     errorSpan.style.color = 'green';
-    window.location.assign('/');
+    window.location.assign('/allAlbums');
   }
   errorSpan.innerText = data.message;
 
@@ -47,7 +47,7 @@ formLogin?.addEventListener('submit', async (event) => {
   const data = await response.json();
   if (data.message === 'Добро пожаловать') {
     errorSpanLogin.style.color = 'green';
-    window.location.assign('/');
+    window.location.assign('/allAlbums');
   }
   errorSpanLogin.innerText = data.message;
 

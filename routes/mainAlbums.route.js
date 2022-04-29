@@ -1,11 +1,10 @@
 const router = require("express").Router();
-const { User, Album, Photo } = require("../db/models");
+const { Album, Photo } = require("../db/models");
 
 //
 
-router
-
-  .get('/', async (req, res) => {
+router.route('/allAlbums')
+  .get(async (req, res) => {
     try {
       const { user } = req.session;
       const album = await Album.findAll();
@@ -17,7 +16,7 @@ router
     }
 
   })
-  .post('/allAlbums', async (req, res) => {
+  .post(async (req, res) => {
     const tick = req.body;
     // console.log("ID server>>>>", tick.id);
     const albumPhotos = await Photo.findAll({
@@ -27,11 +26,13 @@ router
     // console.log(albumPhotos);
     res.render("photos", { albumPhotos, layout: false });
   })
-  .delete('allAlbums', async (req, res) => {
+  .delete(async (req, res) => {
     const { id } = req.body;
+
     // console.log(id);
     // const deleteAlbum = await Album.findOne({ where: { albumId: id } });
     const putPhoto = await Photo.findOne({ where: { id } });
+    // await Album.destroy({ where: { id: Number(delAlb) } })
     await Photo.destroy({ where: { id } });
     // const lastPhoto = await Photo.findAll();
     // if (!lastPhoto) await deleteAlbum.destroy();
@@ -48,10 +49,11 @@ router
       await Album.update({ private: true }, { where: { id } });
     }
     const status = await Album.findOne({ where: { id } });
-    console.log(status);
     // await privateAlbum.update({ where: { private: true } });
     // await privateAlbum.save();
     res.json({ status: status.private });
-  });
+
+  })
+
 
 module.exports = router;

@@ -146,3 +146,9 @@ ul li:hover .dropOut {
 .orange-txt:hover {
   background: #ffb135;
 }
+
+body {
+  background-image: url('/img/5183000.jpg') !important;
+  object-fit: cover;
+  object-position: center;
+}

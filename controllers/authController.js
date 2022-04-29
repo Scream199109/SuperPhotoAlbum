@@ -73,7 +73,7 @@ class AuthController {
         return res.redirect('/error');
       }
       res.clearCookie('user_uid');
-      return res.redirect('/');
+      return res.redirect('/allAlbums');
     });
   }
 }

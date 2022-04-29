@@ -1,16 +1,18 @@
 <div id="containerAlbums">
   <div id="colomnDiv">
 
-{{#each album}}
-<div class="menuButton" style="display:flex; flex-direction:row; justify-content:space-between">
-  
-  <p id={{id}} class="albumButton">{{title}}</p>
-  <p class="mouseHover" id="private/{{id}}" style="display: flex; margin: 10px; font-size:xx-large" data-privid={{id}}>&#128273;</p>
-  </div>
-  <div>
-    {{!-- <p>I will display &#128540;</p> --}}
-  </div>
-{{/each}}
+    {{#each album}}
+    <div class="menuButton" style="display:flex; flex-direction:row; justify-content:space-between">
 
+      <p id={{id}} class="albumButton">{{title}}</p>
+      <p class="mouseHover" id="private/{{id}}" style="display: flex; margin: 10px; font-size:xx-large"
+        data-privid={{id}}>&#128273;</p>
+      {{!-- <p data-privid="{{id}}" class="mouseDel" id="{{id}}">D</p> --}}
+    </div>
+    <div>
+      {{!-- <p>I will display &#128540;</p> --}}
+    </div>
+    {{/each}}
   </div>
+  <div id="photos"></div>
 </div>
