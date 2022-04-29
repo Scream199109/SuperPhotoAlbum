@@ -1,5 +1,6 @@
 // const containerAlbums = document.querySelector("#containerAlbums");
 const colomnDiv = document.querySelector("#colomnDiv");
+// const private = document.getElementById(`private/${ticktock}`);
 const photos = document.querySelector("#photos");
 const btnAlbum = document.querySelector(".albumButton");
 // console.log("PHOTOS>>>>", photos);
@@ -8,11 +9,37 @@ colomnDiv?.addEventListener("click", async (event) => {
   event.preventDefault();
   // console.log(event.target);
   const tick = event.target.id;
-
-  // console.log("ID>>>>", tick);
+  const tock = event.target;
+  const ticktock = tock.dataset.privid;
+  console.log("tock ", tock);
+  console.log("tick>>>>", tick);
+  console.log("tick-tock>>>>", ticktock);
+  // const private = document.querySelector(`p[private${id}]`);
   if (tick === "colomnDiv") {
     console.log(")))))))))");
-  } else {
+
+  } else if (ticktock) {
+    const response = await fetch("/allAlbums", {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: ticktock,
+      }),
+    });
+    const private = document.getElementById(`private/${ticktock}`);
+
+    const data = await response.json();
+    console.log(data);
+    if (data.status) {
+      private.innerHTML = "&#128274;";
+    } else {
+      private.innerHTML = "&#128273;";
+    }
+    // const data = await response.text();
+    // photos.innerHTML = data;
+  } else if (tick) {
 
     const response = await fetch("/allAlbums", {
       method: "post",
@@ -28,6 +55,7 @@ colomnDiv?.addEventListener("click", async (event) => {
     // console.log("🚀 ~ colomnDiv?.addEventListener ~ data", data)
     photos.innerHTML = data;
   }
+
 });
 
 const waveInner = document.querySelector("wave_inner");
