@@ -1,5 +1,5 @@
+const { Photo } = require('../db/models');
 const { Test } = require('../db/models');
-
 class CardController {
   async cardRender(req, res) {
     try {
@@ -23,12 +23,17 @@ class CardController {
       }
     }
   }
-  // async cardRender(req, res) {
-  //   try {
-
-  //   } catch (err) {
-
-  //   }
-  // }
+  async superRender(req, res) {
+    try {
+      const allPhoto = await Photo.findAll()
+      console.log("🚀 ~ CardController ~ superRender ~ allPhoto", allPhoto)
+      res.render('super', allPhoto);
+    } catch (err) {
+      if (err) {
+        console.log(err);
+        res.status(400).json({ message: 'error', err });
+      }
+    }
+  }
 }
 module.exports = new CardController();

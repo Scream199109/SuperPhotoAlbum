@@ -2,9 +2,10 @@
 const colomnDiv = document.querySelector("#colomnDiv");
 // const private = document.getElementById(`private/${ticktock}`);
 const photos = document.querySelector("#photos");
+const btnAlbum = document.querySelector(".albumButton");
 // console.log("PHOTOS>>>>", photos);
 // console.log("colomnDiv>>>", colomnDiv);
-colomnDiv.addEventListener("click", async (event) => {
+colomnDiv?.addEventListener("click", async (event) => {
   event.preventDefault();
   // console.log(event.target);
   const tick = event.target.id;
@@ -16,6 +17,7 @@ colomnDiv.addEventListener("click", async (event) => {
   // const private = document.querySelector(`p[private${id}]`);
   if (tick === "colomnDiv") {
     console.log(")))))))))");
+
   } else if (ticktock) {
     const response = await fetch("/allAlbums", {
       method: "put",
@@ -38,6 +40,7 @@ colomnDiv.addEventListener("click", async (event) => {
     // const data = await response.text();
     // photos.innerHTML = data;
   } else if (tick) {
+
     const response = await fetch("/allAlbums", {
       method: "post",
       headers: {
@@ -48,10 +51,11 @@ colomnDiv.addEventListener("click", async (event) => {
       }),
     });
     const data = await response.text();
+    photos.insertAdjacentHTML('afterbegin', data)
+    // console.log("🚀 ~ colomnDiv?.addEventListener ~ data", data)
     photos.innerHTML = data;
   }
 
-  // console.log(data);
 });
 
 const waveInner = document.querySelector("wave_inner");
