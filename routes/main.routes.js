@@ -1,8 +1,8 @@
-const router = require('express').Router();
-const controller = require('../controllers/mainController');
+// const router = require('express').Router();
+// const controller = require('../controllers/mainController');
 
-router.get('/', controller.getRenderMain);
-module.exports = router;
+// router.get('/', controller.getRenderMain);
+// module.exports = router;
 // router.get('/', (req, res) => {
 //   const { user } = req.session;
 //   console.log('🚀 ~ router.get ~ user', user);
