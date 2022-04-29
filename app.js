@@ -13,8 +13,11 @@ const authRouter = require("./routes/auth.routes");
 const cardRouter = require("./routes/card.routes");
 const albumRouter = require("./routes/mainAlbums.route");
 const galeryRouter = require('./routes/galery.routes');
+// const zipRouter = require('./routes/zip.routes');
+
 config(app);
 app.use("/auth", authRouter);
+// app.use('/', zipRouter)
 // app.use("/", mainRouter);
 app.use("/", cardRouter);
 app.use("/", cardRouter);
