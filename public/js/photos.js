@@ -8,8 +8,12 @@ colomnDiv?.addEventListener("click", async (event) => {
   event.preventDefault();
   // console.log(event.target);
   const tick = event.target.id;
-  console.log("ID>>>>", tick);
-  if (tick) {
+
+  // console.log("ID>>>>", tick);
+  if (tick === "colomnDiv") {
+    console.log(")))))))))");
+  } else {
+
     const response = await fetch("/allAlbums", {
       method: "post",
       headers: {
@@ -22,8 +26,6 @@ colomnDiv?.addEventListener("click", async (event) => {
     const data = await response.text();
     photos.innerHTML = data;
   }
-
-  // console.log(data);
 });
 
 const waveInner = document.querySelector("wave_inner");
