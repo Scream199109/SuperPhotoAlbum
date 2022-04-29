@@ -24,6 +24,8 @@ colomnDiv?.addEventListener("click", async (event) => {
       }),
     });
     const data = await response.text();
+    photos.insertAdjacentHTML('afterbegin', data)
+    // console.log("🚀 ~ colomnDiv?.addEventListener ~ data", data)
     photos.innerHTML = data;
   }
 });
