@@ -2,7 +2,14 @@
 <div id="containerAlbums">
   <div id="colomnDiv">
 {{#each album}}
+<div style="display:flex; flex-direction:row; justify-content:space-between">
+  
   <p id={{id}} class="albumButton">{{title}}</p>
+  <p id="private/{{id}}" style="display: flex; margin: 5px; background-color:brown" data-privid={{id}}>&#x1F512;</p>
+  </div>
+  <div>
+    {{!-- <p>I will display &#128540;</p> --}}
+  </div>
 {{/each}}
   </div>
 <div id="photos">

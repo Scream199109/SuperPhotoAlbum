@@ -7,11 +7,36 @@ colomnDiv.addEventListener("click", async (event) => {
   event.preventDefault();
   // console.log(event.target);
   const tick = event.target.id;
-
-  // console.log("ID>>>>", tick);
+  const tock = event.target;
+  const ticktock = tock.dataset.privid;
+  console.log("tock ", tock);
+  console.log("tick>>>>", tick);
+  console.log("tick-tock>>>>", ticktock);
+  // const private = document.querySelector(`p[private${id}]`);
   if (tick === "colomnDiv") {
     console.log(")))))))))");
-  } else {
+  } else if (ticktock) {
+    const response = await fetch("/allAlbums", {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: ticktock,
+      }),
+    });
+    const private = document.getElementById(`private/${ticktock}`);
+
+    const data = await response.json();
+    console.log(data);
+    if (data.status) {
+      private.innerText = "&#x1F512;";
+    } else {
+      private.innerText = "&#x1F523;";
+    }
+    // const data = await response.text();
+    // photos.innerHTML = data;
+  } else if (tick) {
     const response = await fetch("/allAlbums", {
       method: "post",
       headers: {
@@ -24,6 +49,7 @@ colomnDiv.addEventListener("click", async (event) => {
     const data = await response.text();
     photos.innerHTML = data;
   }
+
   // console.log(data);
 });
 
