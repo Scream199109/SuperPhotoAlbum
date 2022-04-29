@@ -1,7 +1,6 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
-
 class AuthController {
   async renderReg(req, res) {
     try {
@@ -51,7 +50,7 @@ class AuthController {
 
   async login(req, res) {
     try {
-      const { email, password, role } = req.body;
+      const { email, password } = req.body;
       const user = await User.findOne({ where: { email } });
       if (user && await bcrypt.compare(password, user.password)) {
         req.session.user = user;

@@ -36,6 +36,7 @@ nav {
   font-size: 1em;
   cursor: pointer;
 }
+
 .drop a {
   font-weight: 400;
   line-height: 2.5em;
@@ -85,6 +86,7 @@ nav {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
+
 .dropOut ul {
   padding: .3em 0;
   margin: 0;
@@ -102,15 +104,18 @@ nav {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
+
 .dropOut li span {
   color: #cccccc;
   margin: 0 1.5em 0 .8em;
 }
+
 .dropOut li:hover {
   border-color: #ffc568;
   color: #4d4d4d;
   background: #ededed;
 }
+
 .dropOut li:hover span {
   color: gray;
 }
@@ -137,6 +142,15 @@ ul li:hover .dropOut {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0%, #ffb135), color-stop(100%, #ffc15e));
   background-image: linear, bottom, #ffb135 0%, #ffc15e 100%;
 }
+
 .orange-txt:hover {
   background: #ffb135;
+}
+
+.icon-envelope-alt:before {
+  content: "\f015" !important;
+}
+
+.icon-user:before {
+  content: "\f02d" !important;
 }

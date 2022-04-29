@@ -73,7 +73,7 @@ h1 {
 
 .herader__body {
   background-color: rgb(115, 173, 232);
-  padding: 20px 0;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -189,8 +189,8 @@ h1 {
   height: 300px; */
 }
 
-#colomnDiv{
-  display :block;
+#colomnDiv {
+  display: block;
   width: 250px;
   height: 800px;
   justify-content: space-between;
@@ -332,17 +332,13 @@ h1 {
 
 .addPhoto {
   display: flex;
-
   flex-direction: column !important;
   padding: 6px;
-
-
 }
 
 .btn-add-album {
   padding: 5px;
   cursor: pointer;
-
 }
 
 #add-album {
@@ -354,4 +350,9 @@ h1 {
 #allTopic {
   padding: 5px;
   margin-bottom: 20px;
+}
+
+body,
+html {
+  overflow: visible !important;
 }
