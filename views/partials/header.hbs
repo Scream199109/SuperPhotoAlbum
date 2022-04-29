@@ -1,6 +1,6 @@
 <header class="header">
   <div class="herader__body">
-    {{#if user}}
+    {{#if isAuthorized}}
     <nav>
       <ul>
         <li class="drop">
@@ -13,8 +13,8 @@
           <div class="dropdownContain">
             <div class="dropOut">
               <ul>
-                <li><span aria-hidden="true" class="icon-envelope-alt"></span><a href="/auth/logout">Галерея</a></li>
-                <li><span aria-hidden="true" class="icon-user"></span><a href="/auth/logout">Добавить фото</a></li>
+                <li><span aria-hidden="true" class="icon-envelope-alt"></span><a href="/">Галерея</a></li>
+                <li><span aria-hidden="true" class="icon-user"></span><a href="/galery">Добавить фото</a></li>
                 {{!-- <li><span aria-hidden="true" class="icon-cog"></span> <a href="/auth/logout">Фото</a></li> --}}
                 <li><span aria-hidden="true" class="icon-off"></span> <a href="/auth/logout">Выход</a> </li>
               </ul>

@@ -1,9 +1,10 @@
 // const containerAlbums = document.querySelector("#containerAlbums");
 const colomnDiv = document.querySelector("#colomnDiv");
 const photos = document.querySelector("#photos");
+const btnAlbum = document.querySelector(".albumButton");
 // console.log("PHOTOS>>>>", photos);
 // console.log("colomnDiv>>>", colomnDiv);
-colomnDiv.addEventListener("click", async (event) => {
+colomnDiv?.addEventListener("click", async (event) => {
   event.preventDefault();
   // console.log(event.target);
   const tick = event.target.id;
@@ -12,6 +13,7 @@ colomnDiv.addEventListener("click", async (event) => {
   if (tick === "colomnDiv") {
     console.log(")))))))))");
   } else {
+
     const response = await fetch("/allAlbums", {
       method: "post",
       headers: {
@@ -24,7 +26,6 @@ colomnDiv.addEventListener("click", async (event) => {
     const data = await response.text();
     photos.innerHTML = data;
   }
-  // console.log(data);
 });
 
 const waveInner = document.querySelector("wave_inner");

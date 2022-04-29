@@ -1,6 +1,10 @@
-// function authUser() {
-//   return function (req, res, next) {
-//     req.session() ? next() : res.redirect('/');
-//   };
-// }
-// module.exports = authUser;
+const signUpCheck = (req, res, next) => {
+  if (req.session?.user?.id) {
+    res.locals.isAuthorized = true;
+  } else {
+    res.locals.isAuthorized = false;
+  }
+  next();
+};
+
+module.exports = signUpCheck;

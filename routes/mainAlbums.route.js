@@ -4,13 +4,18 @@ const { User, Album, Photo } = require("../db/models");
 //
 
 router
-  .route("/allAlbums")
-  .get(async (req, res) => {
-    const album = await Album.findAll();
-    const photos = await Photo.findAll();
-    res.render("albums", { album, photos });
+  .get('/', async (req, res) => {
+    try {
+      const { user } = req.session;
+      const album = await Album.findAll();
+      const photos = await Photo.findAll();
+      res.render('albums', { album, photos, isAuthorized: req.session.isAuthorized, user });
+    } catch (e) {
+      console.log(e)
+      res.redirect('/error')
+    }
   })
-  .post(async (req, res) => {
+  .post('/allAlbums', async (req, res) => {
     const tick = req.body;
     // console.log("ID server>>>>", tick.id);
     const albumPhotos = await Photo.findAll({
@@ -20,7 +25,7 @@ router
     // console.log(albumPhotos);
     res.render("photos", { albumPhotos, layout: false });
   })
-  .delete(async (req, res) => {
+  .delete('allAlbums', async (req, res) => {
     const { id } = req.body;
     console.log(id);
     const putPhoto = await Photo.findOne({ where: { id } });
