@@ -3,8 +3,7 @@ const addFormPhoto = document.querySelector('#add-photo')
 
 addFormAlbum?.addEventListener('submit', async (event) => {
   event.preventDefault()
-  const { title, method, allTopic } = event.target
-  console.log("🚀 ~ addFormAlbum.addEventListener ~ title", title.value)
+  const { title, method } = event.target
 
   const response = await fetch('/add/album', {
     method,
@@ -13,11 +12,11 @@ addFormAlbum?.addEventListener('submit', async (event) => {
     },
     body: JSON.stringify({
       title: title.value,
-      allTopic: allTopic.value
     })
   })
 
-  const data = await response.text()
+  const data = await response.json()
+  document.querySelector('.sucsess').innerText = data.message
   console.log("🚀 ~ addFormAlbum.addEventListener ~ data", data)
 })
 
@@ -35,6 +34,8 @@ addFormAlbum?.addEventListener('submit', async (event) => {
 //       comment: comment.value
 //     })
 //   })
+//   const data = await response.json();
+//   // document.querySelector('.sucsess').innerText = data.message
 
-//   const data = await response.text()
+//   console.log("🚀 ~ addFormPhoto.addEventListener ~ data", data)
 // })
